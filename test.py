@@ -24,6 +24,7 @@ if buildable:
         station.print_labor_map()
     factory.simulate(10000)
     print(factory.num_station, factory.num_unit, factory.num_labor)
+    factory.save('result.xlsx')
 else:
     print('fail to build factory, cycle time is too small')
 
