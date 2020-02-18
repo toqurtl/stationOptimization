@@ -40,7 +40,7 @@ setup(
 
         # Indicate who your project is intended for
         'Intended Audience :: Developers',
-        'Topic :: Multimedia :: Video',
+        'Modular Construction :: Multi-Objective Optimization :: Project Management',
 
         # Pick your license as you wish (should match "license" above)
         'License :: OSI Approved :: MIT License',
@@ -51,7 +51,7 @@ setup(
     ],
 
     # What does your project relate to?
-    keywords='modular construction, mult-objective optimization, genetic algorithm',
+    keywords='modular construction, multi-objective optimization, genetic algorithm',
 
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages().
