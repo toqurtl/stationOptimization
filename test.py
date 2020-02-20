@@ -4,6 +4,9 @@ import numpy as np
 from component.activity import Activity
 from component.station import Station
 from component.factory import Factory
+from paretoGA.generic import Generic
+from paretoGA.generation import Generation
+from paretoGA.front import Fronts
 from component.production_line import ProductionLine
 from enum import Enum
 from paretoGA.optimizer import Optimizer
@@ -12,21 +15,33 @@ from functools import partial
 from typing import List
 from paretoGA.optimizer import Optimizer
 from paretoGA.generic import GenericEnum
-#
+from paretoGA.optimizer import ObjEnum
+from paretoGA.optimizer import OrderEnum
 #
 generic_ratio = {
-    GenericEnum.SUPERIOR: 0.3,
-    GenericEnum.SELECTION: 0.3,
+    GenericEnum.SUPERIOR: 0.2,
+    GenericEnum.SELECTION: 0,
     GenericEnum.CROSSOVER: 0.2,
-    GenericEnum.LOCAL_MUTATION:0.1,
-    GenericEnum.GLOBAL_MUTATION:0.1
+    GenericEnum.LOCAL_MUTATION: 0.2,
+    GenericEnum.GLOBAL_MUTATION: 0.4
 }
 
 production_line = ProductionLine('productionline.csv')
+
 optimizer = Optimizer(production_line)
-optimizer.add_objective(1, 1)
-optimizer.add_objective(2, -1)
-optimizer.set_generic(generic_ratio)
+
+optimizer.add_objective(ObjEnum.NUM_UNIT, OrderEnum.MAX)
+optimizer.add_objective(ObjEnum.NUM_LABOR, OrderEnum.MIN)
+
+optimizer.set_generic(generic_ratio, size=100, max_generation=200, simulation_time=10000, initialize=True)
+optimizer.pareto_optimize()
+optimizer.save('final_result_initial.xlsx')
+
+
+# first_generation = Generation(production_line, 10000, 100, optimizer.generic)
+# first_generation.create_first_generation(optimizer)
+# first_generation.fronts = Fronts(first_generation, len(optimizer.objective_functions))
+# first_generation.fronts.save('front_result.xlsx')
 
 # factory = Factory(cycle_time=140)
 # factory.build_factory(production_line=production_line, initialize=True)
