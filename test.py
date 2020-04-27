@@ -19,9 +19,9 @@ from paretoGA.optimizer import ObjEnum
 from paretoGA.optimizer import OrderEnum
 #
 generic_ratio = {
-    GenericEnum.SUPERIOR: 0.2,
+    GenericEnum.SUPERIOR: 0,
     GenericEnum.SELECTION: 0,
-    GenericEnum.CROSSOVER: 0.2,
+    GenericEnum.CROSSOVER: 0.4,
     GenericEnum.LOCAL_MUTATION: 0.2,
     GenericEnum.GLOBAL_MUTATION: 0.4
 }
@@ -32,10 +32,11 @@ optimizer = Optimizer(production_line)
 
 optimizer.add_objective(ObjEnum.NUM_UNIT, OrderEnum.MAX)
 optimizer.add_objective(ObjEnum.NUM_LABOR, OrderEnum.MIN)
-
 optimizer.set_generic(generic_ratio, size=100, max_generation=200, simulation_time=10000, initialize=True)
 optimizer.pareto_optimize()
+
 optimizer.save('final_result_initial.xlsx')
+
 
 
 # first_generation = Generation(production_line, 10000, 100, optimizer.generic)
