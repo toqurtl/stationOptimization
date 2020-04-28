@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1597a281-bb9c-4f86-8b8c-8766e94264b3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Activity Information on Production Line.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_result.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_result_2.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_result_initial.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front_result.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result.xlsx" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -111,8 +116,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+            <state relative-caret-position="57">
+              <caret line="3" column="12" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -449,7 +454,7 @@
       <workItem from="1585639263172" duration="214000" />
       <workItem from="1587457593870" duration="144000" />
       <workItem from="1587949981782" duration="10872000" />
-      <workItem from="1588038293450" duration="5804000" />
+      <workItem from="1588038293450" duration="6052000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1581334980272</created>
@@ -542,17 +547,23 @@
       <option name="project" value="LOCAL" />
       <updated>1588044159670</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="change gitignore">
+      <created>1588044295624</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1588044295624</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154958000" />
+    <option name="totallyTimeSpent" value="155206000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4980916" visible="true" weight="0.1076759" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4980916" visible="true" weight="0.09221748" />
       <window_info id="Structure" order="1" sideWeight="0.5019084" side_tool="true" weight="0.13965885" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -809,8 +820,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        <state relative-caret-position="57">
+          <caret line="3" column="12" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
         </state>
       </provider>
     </entry>
