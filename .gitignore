@@ -3,5 +3,5 @@ test_2.py
 playground.py
 *.csv
 *.xlsx
-
+.idea
 
