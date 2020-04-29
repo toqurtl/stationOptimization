@@ -4,7 +4,6 @@ from pandas import DataFrame
 import numpy as np
 
 
-
 class Generation(list):
     def __init__(self, production_line, simulation_time, num_of_chromosome, generic):
         self.num_generation = 0

@@ -13,7 +13,7 @@ generic_ratio = {
     GenericEnum.GLOBAL_MUTATION: 0.2
 }
 
-production_line = ProductionLine('sample_data/productionline.csv')
+production_line = ProductionLine('../sample_data/productionline.csv')
 
 optimizer = Optimizer(production_line)
 optimizer.add_objective(ObjEnum.NUM_UNIT, OrderEnum.MAX)
