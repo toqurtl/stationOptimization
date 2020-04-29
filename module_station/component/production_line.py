@@ -1,9 +1,7 @@
 from .activity import Activity
 import random
 from .factory import Factory
-from paretoGA.chromosome import Chromosome
-from paretoGA.chromosome import cycle_to_array
-from paretoGA.chromosome import get_cycle
+from ..paretoGA.chromosome import get_cycle
 from pandas import DataFrame
 from copy import deepcopy
 

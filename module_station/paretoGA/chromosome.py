@@ -1,6 +1,6 @@
 import math
 from copy import deepcopy
-from component import factory
+from ..component import factory
 
 
 def cycle_to_array(cycle):
