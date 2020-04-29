@@ -17,6 +17,7 @@ class ObjEnum(Enum):
     NUM_STATION = 2
     ACTIVITY_IDLE_TIME_FOR_LABOR = 3
     STATION_IDLE_TIME_FOR_LABOR = 4
+    FACTORY_IDLE_TIME = 5
 
 
 class OrderEnum(Enum):
@@ -160,6 +161,9 @@ def call_objective_function(idx):
     def get_num_station(factory, extrema):
         return factory.num_station * extrema
 
+    def get_factory_idle_time(factory, extrema):
+        return factory.factory_idle_time * extrema
+
     def get_num_unit(factory, extrema):
         return factory.num_unit * extrema
 
@@ -171,7 +175,8 @@ def call_objective_function(idx):
         ObjEnum.NUM_LABOR: get_num_labor,
         ObjEnum.NUM_STATION: get_num_station,
         ObjEnum.ACTIVITY_IDLE_TIME_FOR_LABOR: get_activity_idle_time_for_labor,
-        ObjEnum.STATION_IDLE_TIME_FOR_LABOR: get_station_idle_time_for_labor
+        ObjEnum.STATION_IDLE_TIME_FOR_LABOR: get_station_idle_time_for_labor,
+        ObjEnum.FACTORY_IDLE_TIME: get_factory_idle_time
     }
 
     return objective_function_list.get(idx)

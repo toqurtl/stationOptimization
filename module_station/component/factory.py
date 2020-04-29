@@ -54,7 +54,7 @@ class Factory(list):
     def print_factory(self):
         for station in self:
             station.print_station()
-        print(self.num_unit, self.num_station, self.num_station, self.cycle_time)
+        print(self.num_unit, self.num_station, self.num_station, self.cycle_time, self.factory_idle_time)
         return
 
     def to_pandas_dataframe(self):
