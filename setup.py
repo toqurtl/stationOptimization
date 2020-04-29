@@ -69,7 +69,8 @@ setup(
         'pandas',
         'xlsxwriter',
         'matplotlib',
-        'numpy'
+        'config'
+        'numpy',
         ],
 
     # List additional groups of dependencies here (e.g. development
