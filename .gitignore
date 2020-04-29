@@ -5,3 +5,4 @@ result/
 .idea
 *.pyc
 __pycache__/
+*.ge

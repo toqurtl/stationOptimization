@@ -1,5 +1,9 @@
 from pandas import DataFrame, ExcelWriter
 from copy import deepcopy
+from pandas import DataFrame
+from matplotlib import pyplot as plt
+import numpy as np
+
 
 
 class Generation(list):
@@ -63,6 +67,30 @@ class Generation(list):
 
     def print_generation(self):
         print(self.to_pandas_dataframe())
+
+    def get_every_fronts_as_pandas(self):
+        pandas_list = []
+        for idx in range(0, len(self.fronts)):
+            pandas_list.append(self.get_nth_front_as_pandas(idx))
+        return pandas_list
+
+    def get_best_front_as_pandas(self):
+        return self.get_nth_front_as_pandas(0)
+
+    def get_nth_front_as_pandas(self, idx):
+        nth_front = self.fronts[idx]
+        result_row = []
+        for chromosome in nth_front:
+            result_row.append(chromosome.objectives)
+        result_row = np.array(result_row)
+        return idx, DataFrame(data=result_row, columns=self._get_objective_columns())
+
+    def _get_objective_columns(self):
+        objectives = self[0].objectives
+        columns = []
+        for i in range(1,len(objectives)+1):
+            columns.append('objective'+str(i))
+        return columns
 
     def save(self, filename, num_objective_function=2):
         row_list = []

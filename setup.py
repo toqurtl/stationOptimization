@@ -69,6 +69,7 @@ setup(
         'pandas',
         'xlsxwriter',
         'matplotlib',
+        'mplot3d-dragger',
         'config',
         'numpy',
         ],
