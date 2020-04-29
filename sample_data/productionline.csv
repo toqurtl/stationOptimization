@@ -1,0 +1,46 @@
+ID,Work Name,Duration by single worker,Type of Worker,Minimum Required Number of Workers,fixed,Location,Max. Number of Workers
+1,Wall Stud Installation,40,Sheet Steel Worker,2,TRUE,Inside,4
+2,Install Insulator to Steel Frame,30,Construction Labor,1,FALSE,Outside,4
+3,Install Door and Window Frame (Short Side),40,Window Framer,2,TRUE,Outside,4
+4,Install Pipe Shaft Frame,10,Metal Worker,1,FALSE,Outside,4
+5,Corner Floor Concrete Pouring,10,Construction Labor,1,FALSE,Inside,4
+6,Install Fire and Water Proof Gypsum Board to Inside Wall (Long Side),20,Joiner,2,FALSE,Inside,4
+7,Install Fire Proof Gypsum Board to Inside Wall (Long Side),140,Joiner,2,TRUE,Inside,4
+8,Install Insulator(Glass Wool) to Wall(Long Side),60,Construction Labor,2,FALSE,Outside,4
+9,Install Electric Power Distribution Cabinet (Short Side),5,Electricians,1,TRUE,Inside,4
+10,Install Wall Pipe (Short Side),10,Pipefitter,1,FALSE,Inside,4
+11,Fix Wall Pipe (Long Side),10,Pipefitter,1,FALSE,Inside,4
+12,Install Wall Pipe (Long Side),20,Pipefitter,1,FALSE,Inside,4
+13,Install Gypsum Board to Inside Wall (Short Side),80,Joiner,2,FALSE,Inside,4
+14,Install Cement Board (Long Side),40,Joiner,2,TRUE,Outside,4
+15,Inside Stud Installation (Bath Room),10,Joiner,1,FALSE,Inside,4
+16,Install Insulator(Glass Wool) to Wall(Long Side),60,Construction Labor,2,FALSE,Outside,4
+17,Install Insulator(Glass Wool) to Wall(Short Side),30,Construction Labor,1,FALSE,Outside,4
+18,Install Cement Board (Long Side),40,Joiner,2,TRUE,Outside,4
+19,Install Insulator to Inside Wall,10,Joiner,1,FALSE,Inside,4
+20,Install Pipe in Pipe Shaft Frame,80,Pipefitter,2,FALSE,Inside,4
+21,Install Power Outlet Box and Electric Wire,20,Electricians,2,FALSE,Inside,4
+22,Install Lighting and Outlet Socket,60,Electricians,2,FALSE,Inside,4
+23,Install Stiffening Plate for Fixing Sanitary Fixture in Bathroom,10,Joiner,1,FALSE,Inside,2
+24,Wrap Water Proof Paper (Long Side),40,Joiner,2,TRUE,Outside,4
+25,Install Water Proof Gypsum Board to Bathroom,80,Joiner,2,FALSE,Inside,2
+26,Install Cement Board (Short Side),40,Joiner,2,FALSE,Outside,4
+27,Install Gypsum Board to Inside Wall (Short Side),40,Joiner,2,FALSE,Inside,4
+28,Wrap Water Proof Paper (Long Side),40,Joiner,2,FALSE,Outside,4
+29,Install Outlet Socket (Short Aisle Side),20,Electricians,2,FALSE,Outside,4
+30,Install Door,60,Metal Worker,2,TRUE,Outside,4
+31,Install Window,20,Window Framer,2,TRUE,Outside,4
+32,Putty Inside Wall,30,Painter,1,FALSE,Inside,4
+33,Electric Wiring in Ceiling   ,60,Electricians,2,TRUE,Inside,4
+34,Install Pipe Shaft Frame Door,20,Metal Worker,2,FALSE,Outside,4
+35,Transport Steel Frame for Fixing Exterior Wall Panel Bracket,5,Metal Worker,1,TRUE,Outside,4
+36,Fix the Steel Frame for Exterior Wall Panel,40,Metal Worker,2,FALSE,Outside,4
+37,Lighting and Outlet Socket Wiring ,40,Electricians,2,TRUE,Outside,4
+38,Install Hanger Bolt for Suspended Ceiling,40,Joiner,2,TRUE,Inside,4
+39,Install Curtain Box,40,Joiner,2,TRUE,Inside,4
+40,Install Carrying Channel for Suspended Ceiling,20,Joiner,2,TRUE,Inside,4
+41,Install Minor Channel for Suspended Ceiling,20,Joiner,2,TRUE,Inside,4
+42,Install M-bar for Suspended Ceiling,40,Joiner,2,FALSE,Inside,4
+43,Install Outlet Socket Cover (Short Aisle Side),5,Electricians,1,TRUE,Outside,4
+44,Install Gypsum Board to Ceiling,120,Joiner,2,TRUE,Inside,4
+45,Wrapping Modular Unit,60,Joiner,2,FALSE,Inside,4

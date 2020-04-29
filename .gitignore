@@ -1,11 +1,7 @@
 test.py
 test_2.py
 playground.py
-*.csv
-*.xlsx
+result/
 .idea
 *.pyc
 __pycache__/
-*/__pycache__
-component/__pycache__
-paretoGA/__pycache__
