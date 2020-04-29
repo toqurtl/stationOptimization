@@ -1,7 +1,6 @@
-from pandas import DataFrame, ExcelWriter
+from pandas import ExcelWriter
 from copy import deepcopy
 from pandas import DataFrame
-from matplotlib import pyplot as plt
 import numpy as np
 
 
