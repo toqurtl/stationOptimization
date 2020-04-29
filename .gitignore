@@ -6,3 +6,6 @@ playground.py
 .idea
 *.pyc
 __pycache__/
+*/__pycache__
+component/__pycache__
+paretoGA/__pycache__
