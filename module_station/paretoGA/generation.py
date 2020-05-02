@@ -23,7 +23,6 @@ class Generation(list):
                 break
             else:
                 if chromosome.factory.__eq__(other_chromosome.factory):
-                    print('same factory')
                     containable = False
                     break
 

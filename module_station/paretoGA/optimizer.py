@@ -103,7 +103,6 @@ class Optimizer:
                         containable_2 = False
                     else:
                         if generated_chromosome.factory.__eq__(new_chromosome.factory):
-                            print('same factory!')
                             containable_2 = False
 
                 if new_chromosome.buildable and containable and containable_2:
