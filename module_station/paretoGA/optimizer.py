@@ -70,6 +70,7 @@ class Optimizer:
 
             # generate new chromosomes
             new_generation = self.get_new_generation(pre_generation)
+            new_generation.aging()
 
             # sorting and delete chromosomes have low fitness
             self.calculate_objectives_generation(new_generation, self.simulation_time)
@@ -98,7 +99,11 @@ class Optimizer:
                 for generated_chromosome in generic_chromosome_list:
                     if generated_chromosome.__same__(new_chromosome):
                         containable_2 = False
-                        break
+                    else:
+                        generated_buildable, generated_factory = \
+                            self.production_line.create_factory_from_chromosome(generated_chromosome, initialize=self.initialize)
+                        if generated_factory.__eq__(new_chromosome.factory):
+                            containable_2 = False
 
                 if new_chromosome.buildable and containable and containable_2:
                     generic_chromosome_list.append(new_chromosome)

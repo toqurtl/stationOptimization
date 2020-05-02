@@ -25,7 +25,10 @@ class Factory(list):
         self.num_labor = 0
 
     def __eq__(self, other):
-        return self.final_activity_list == other.final_activity_list
+        return self.result_info() == other.result_info()
+
+    def result_info(self):
+        return [self.num_station, self.num_unit, self.num_labor, self.factory_idle_time, self.station_idle_time_for_labor, self.activity_idle_time_for_labor]
 
     def build_factory(self, production_line, initialize=True):
         station_id = 0
@@ -48,7 +51,7 @@ class Factory(list):
 
     def simulate(self, simulation_time):
         self.simulation_time = simulation_time
-        time = self.cycle_time*self.num_station
+        time = self.cycle_time * self.num_station
         self.num_unit = math.floor((self.simulation_time-time)/self.cycle_time + 1)
 
     def print_factory(self):

@@ -40,6 +40,10 @@ class Generation(list):
             new_generation.append(chromosome)
         return new_generation
 
+    def aging(self):
+        for chromosome in self:
+            chromosome.age += 1
+
     def delete_bad_chromosome(self):
         for i in range(0, self.num_of_chromosome):
             del self[len(self)-1]

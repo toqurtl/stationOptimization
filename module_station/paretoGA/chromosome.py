@@ -26,6 +26,7 @@ class Chromosome:
 
         self.fitness = 0
         self.cost = 0
+        self.age = 1
 
         # for multi-objective
         self.objectives = []
