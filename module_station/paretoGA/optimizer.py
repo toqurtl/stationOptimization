@@ -8,7 +8,7 @@ from pandas import DataFrame
 from pandas import ExcelWriter
 from copy import deepcopy
 import pickle
-from .exception import EmptyGenerationException
+from .exception import EmptyGenerationException, InfiniteLoopException
 
 
 class ObjEnum(Enum):
@@ -93,18 +93,20 @@ class Optimizer:
                 new_chromosome.buildable, new_chromosome.factory = \
                     self.production_line.create_factory_from_chromosome(new_chromosome, initialize=self.initialize)
                 containable = pre_generation.containable_in_generation(new_chromosome, initialize=self.initialize)
-
+                containable_2 = True
                 for generated_chromosome in generic_chromosome_list:
-                    containable &= new_chromosome.__same__(generated_chromosome)
+                    if generated_chromosome.__same__(new_chromosome):
+                        containable_2 = False
+                        break
 
-                if new_chromosome.buildable and containable:
+                if new_chromosome.buildable and containable and containable_2:
                     generic_chromosome_list.append(new_chromosome)
                 else:
                     del new_chromosome
 
                 infinite_check += 1
                 if infinite_check > 10000:
-                    print('optimizer - get_new_generation')
+                    raise InfiniteLoopException
                     exit()
             for chromosome in generic_chromosome_list:
                 new_generation.append(chromosome)
