@@ -93,6 +93,10 @@ class Optimizer:
                 new_chromosome.buildable, new_chromosome.factory = \
                     self.production_line.create_factory_from_chromosome(new_chromosome, initialize=self.initialize)
                 containable = pre_generation.containable_in_generation(new_chromosome, initialize=self.initialize)
+
+                for generated_chromosome in generic_chromosome_list:
+                    containable &= new_chromosome.__same__(generated_chromosome)
+
                 if new_chromosome.buildable and containable:
                     generic_chromosome_list.append(new_chromosome)
                 else:

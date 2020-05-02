@@ -21,11 +21,6 @@ class Generation(list):
             if chromosome.__same__(other_chromosome):
                 containable = False
                 break
-            # factory_1 = chromosome.factory
-            # factory_2 = other_chromosome.factory
-            # if factory_1.__eq__(factory_2):
-            #     containable = False
-            #     break
         return containable
 
     def create_first_generation(self, optimizer):
