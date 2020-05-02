@@ -96,13 +96,13 @@ class Optimizer:
                     self.production_line.create_factory_from_chromosome(new_chromosome, initialize=self.initialize)
                 containable = pre_generation.containable_in_generation(new_chromosome, initialize=self.initialize)
                 containable_2 = True
+                new_chromosome.factory.simulate(self.simulation_time)
                 for generated_chromosome in generic_chromosome_list:
                     if generated_chromosome.__same__(new_chromosome):
                         containable_2 = False
                     else:
-                        generated_buildable, generated_factory = \
-                            self.production_line.create_factory_from_chromosome(generated_chromosome, initialize=self.initialize)
                         if generated_factory.__eq__(new_chromosome.factory):
+                            print('same factory!')
                             containable_2 = False
 
                 if new_chromosome.buildable and containable and containable_2:
