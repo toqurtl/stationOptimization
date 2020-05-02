@@ -123,8 +123,10 @@ class Optimizer:
         with open(name, 'wb') as f:
             pickle.dump(self.generations, f, pickle.HIGHEST_PROTOCOL)
 
-    def save_last_generation(self, filename):
-        self.generations[-1].fronts.save(filename)
+    def save_last_generation(self, name):
+        last_generation = self.generations[-1]
+        with open(name, 'wb') as f:
+            pickle.dump([last_generation], f, pickle.HIGHEST_PROTOCOL)
 
     def save_to_excel(self, filename):
         row_list = []

@@ -26,7 +26,7 @@ generations = optimizer.generations
 best_front_list = []
 for i in range(0, 9):
     generation = generations[5 * i]
-    empty,front = generation.get_best_front_as_pandas()
+    empty, front = generation.get_best_front_as_pandas()
     best_front_list.append((5 * i, front))
 
 last_generation = generations[-1]
