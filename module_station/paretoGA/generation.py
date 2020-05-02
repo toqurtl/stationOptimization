@@ -21,6 +21,11 @@ class Generation(list):
             if chromosome.__same__(other_chromosome):
                 containable = False
                 break
+            else:
+                chromosome.factory.__eq__(other_chromosome.factory)
+                containable =False
+                break
+                
         return containable
 
     def create_first_generation(self, optimizer):
