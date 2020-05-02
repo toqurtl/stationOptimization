@@ -78,6 +78,7 @@ class Optimizer:
 
             self.generations.append(new_generation)
             best_front = new_generation.fronts[0]
+            print(len(best_front))
             best_front.print_chromosomes()
             print(new_generation.num_generation, 'th generation.......')
         return

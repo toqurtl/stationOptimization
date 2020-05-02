@@ -37,8 +37,8 @@ class Station(list):
         if self.last_station:
             self.station_idle_time = 0
 
-        self._calculate_station_idle_time_for_labor()
-        self._calculate_activity_idle_time_for_labor()
+        self.station_idle_time_for_labor = self._calculate_station_idle_time_for_labor()
+        self.activity_idle_time_for_labor = self._calculate_activity_idle_time_for_labor()
         return
 
     def _calculate_station_idle_time_for_labor(self):
