@@ -22,12 +22,10 @@ class Generation(list):
                 containable = False
                 break
             else:
-                chromosome.factory.simulate(simulation_time=self.simulation_time)
-                other_chromosome.factory.simulate(simulation_time=self.simulation_time)
-                chromosome.factory.__eq__(other_chromosome.factory)
-                print('same factory')
-                containable = False
-                break
+                if chromosome.factory.__eq__(other_chromosome.factory):
+                    print('same factory')
+                    containable = False
+                    break
 
         return containable
 
