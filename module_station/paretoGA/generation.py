@@ -2,6 +2,8 @@ from pandas import ExcelWriter
 from copy import deepcopy
 from pandas import DataFrame
 import numpy as np
+import math
+from .exception import BuildFactoryException
 
 
 class Generation(list):
@@ -13,6 +15,7 @@ class Generation(list):
         self.generic = generic
         self.initialize = True
         self.fronts = None
+        self.build_factory_threshold = 100
 
     # if two factories from different chromosome are same, one of them can't be contained in this generation
     def containable_in_generation(self, other_chromosome, initialize=True):
@@ -29,11 +32,22 @@ class Generation(list):
         return containable
 
     def create_first_generation(self, optimizer):
+        factory_exception_cnt = 0
         while len(self) < self.num_of_chromosome:
+            # check 'not buildable' chromosome cnt
+            if factory_exception_cnt == math.floor(self.num_of_chromosome * self.build_factory_threshold * 0.5):
+                print('Too many failure creating factory from chromosome.. 50% trial left for the exception to occur')
+            elif factory_exception_cnt > self.num_of_chromosome * self.build_factory_threshold:
+                raise BuildFactoryException
+
             chromosome = self.generic.get_random_chromosome()
             chromosome.buildable, chromosome.factory = \
                 optimizer.production_line.create_factory_from_chromosome(chromosome, initialize=optimizer.initialize)
-            self.append(chromosome)
+            if chromosome.buildable:
+                self.append(chromosome)
+            else:
+                factory_exception_cnt += 1
+
         optimizer.calculate_objectives_generation(self, optimizer.simulation_time)
         print('first generation is generated')
         return

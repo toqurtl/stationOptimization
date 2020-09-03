@@ -39,6 +39,7 @@ class Optimizer:
         self.simulation_time = 1000
         self.build_factory_threshold = 100
 
+
     def set_generic(self, generic_ratio, size=100, max_generation=100, simulation_time=10000, initialize=True, first_generation=True, generation=None):
         self.size = size
         self.max_generation = max_generation
@@ -72,7 +73,6 @@ class Optimizer:
             # generate new chromosomes
             new_generation = self.get_new_generation(pre_generation)
             new_generation.aging()
-
             # sorting and delete chromosomes have low fitness
             self.calculate_objectives_generation(new_generation, self.simulation_time)
             new_generation.fronts = Fronts(new_generation, len(self.objective_functions))
@@ -91,7 +91,6 @@ class Optimizer:
         for element in GenericEnum:
             generic_chromosome_list = []
             generic_function = self.generic.call_generic_function(element)
-            infinite_check = 0
             while len(generic_chromosome_list) < self.generic_number_dict[element]:
                 if factory_exception_ctn == math.floor(self.size * self.build_factory_threshold * 0.5):
                     print('Too many failure creating factory from chromosome.. 50% trial left for the exception to occur')
@@ -100,31 +99,34 @@ class Optimizer:
                 new_chromosome = generic_function(pre_generation, 1)
                 new_chromosome.buildable, new_chromosome.factory = \
                     self.production_line.create_factory_from_chromosome(new_chromosome, initialize=self.initialize)
-                new_chromosome.factory.simulate(self.simulation_time)
-                containable = pre_generation.containable_in_generation(new_chromosome, initialize=self.initialize)
-                containable_2 = True
 
                 if not new_chromosome.buildable:
                     factory_exception_ctn += 1
+                    del new_chromosome
+                    continue
 
+                new_chromosome.factory.simulate(self.simulation_time)
+                containable = pre_generation.containable_in_generation(new_chromosome, initialize=self.initialize)
+                if not containable:
+                    del new_chromosome
+                    continue
+
+                containable_2 = True
                 for generated_chromosome in generic_chromosome_list:
                     if generated_chromosome.__same__(new_chromosome):
                         containable_2 = False
                     else:
                         if generated_chromosome.factory.__eq__(new_chromosome.factory):
                             containable_2 = False
-
-                if new_chromosome.buildable and containable and containable_2:
-                    generic_chromosome_list.append(new_chromosome)
-                else:
+                if not containable_2:
                     del new_chromosome
+                    continue
 
-                infinite_check += 1
-                if infinite_check > 10000:
-                    raise InfiniteLoopException
-                    exit()
+                generic_chromosome_list.append(new_chromosome)
+
             for chromosome in generic_chromosome_list:
                 new_generation.append(chromosome)
+
         return new_generation
 
     def calculate_objectives_chromosome(self, chromosome, simulation_time):
