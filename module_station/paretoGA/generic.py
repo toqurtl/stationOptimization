@@ -7,7 +7,7 @@ from .chromosome import Chromosome
 
 
 max_cycle = 255
-min_cycle = 10
+min_cycle = 70
 
 
 def cycle_to_array(cycle):

@@ -93,7 +93,9 @@ class Optimizer:
             generic_function = self.generic.call_generic_function(element)
             infinite_check = 0
             while len(generic_chromosome_list) < self.generic_number_dict[element]:
-                if factory_exception_ctn > self.size * self.build_factory_threshold:
+                if factory_exception_ctn == math.floor(self.size * self.build_factory_threshold * 0.5):
+                    print('Too many failure creating factory from chromosome.. 50% trial left for the exception to occur')
+                elif factory_exception_ctn > self.size * self.build_factory_threshold:
                     raise BuildFactoryException
                 new_chromosome = generic_function(pre_generation, 1)
                 new_chromosome.buildable, new_chromosome.factory = \
