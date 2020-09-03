@@ -1,7 +1,8 @@
 class BuildFactoryException(Exception):
     def __init__(self):
-        # def build_factory in factory.py
-        pass
+        msg = "Too many failure creating factory from chromosome due to low minimum cycle\n"
+        msg += "Try with higher minimum cycle value"
+        super().__init__(msg)
 
 
 class EmptyGenerationException(Exception):

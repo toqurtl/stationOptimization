@@ -8,7 +8,7 @@ from pandas import DataFrame
 from pandas import ExcelWriter
 from copy import deepcopy
 import pickle
-from .exception import EmptyGenerationException, InfiniteLoopException
+from .exception import EmptyGenerationException, InfiniteLoopException, BuildFactoryException
 
 
 class ObjEnum(Enum):
@@ -37,6 +37,7 @@ class Optimizer:
         self.generic = None
         self.initialize = True
         self.simulation_time = 1000
+        self.build_factory_threshold = 100
 
     def set_generic(self, generic_ratio, size=100, max_generation=100, simulation_time=10000, initialize=True, first_generation=True, generation=None):
         self.size = size
@@ -86,17 +87,23 @@ class Optimizer:
 
     def get_new_generation(self, pre_generation):
         new_generation = pre_generation.create_new_generation()
+        factory_exception_ctn = 0
         for element in GenericEnum:
             generic_chromosome_list = []
             generic_function = self.generic.call_generic_function(element)
             infinite_check = 0
             while len(generic_chromosome_list) < self.generic_number_dict[element]:
+                if factory_exception_ctn > self.size * self.build_factory_threshold:
+                    raise BuildFactoryException
                 new_chromosome = generic_function(pre_generation, 1)
                 new_chromosome.buildable, new_chromosome.factory = \
                     self.production_line.create_factory_from_chromosome(new_chromosome, initialize=self.initialize)
                 new_chromosome.factory.simulate(self.simulation_time)
                 containable = pre_generation.containable_in_generation(new_chromosome, initialize=self.initialize)
                 containable_2 = True
+
+                if not new_chromosome.buildable:
+                    factory_exception_ctn += 1
 
                 for generated_chromosome in generic_chromosome_list:
                     if generated_chromosome.__same__(new_chromosome):

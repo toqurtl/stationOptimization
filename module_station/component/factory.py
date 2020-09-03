@@ -44,7 +44,7 @@ class Factory(list):
                 break
             # for debugging
             if station_id > num_act * buildable_threshold:
-                raise BuildFactoryException
+                # raise BuildFactoryException
                 buildable = False
 
         return buildable
