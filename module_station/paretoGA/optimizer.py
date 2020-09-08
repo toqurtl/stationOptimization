@@ -9,6 +9,7 @@ from pandas import ExcelWriter
 from copy import deepcopy
 import pickle
 from .exception import EmptyGenerationException, InfiniteLoopException, BuildFactoryException
+import time
 
 
 class ObjEnum(Enum):
@@ -38,6 +39,7 @@ class Optimizer:
         self.initialize = True
         self.simulation_time = 1000
         self.build_factory_threshold = 100
+        self.time_per_generation = []
 
 
     def set_generic(self, generic_ratio, size=100, max_generation=100, simulation_time=10000, initialize=True, first_generation=True, generation=None):
@@ -67,6 +69,7 @@ class Optimizer:
         self.objective_functions.append((call_objective_function(idx), order_enum.value))
 
     def pareto_optimize(self):
+
         for idx in range(0, self.max_generation):
             pre_generation = self.generations[-1]
 
@@ -80,9 +83,10 @@ class Optimizer:
 
             self.generations.append(new_generation)
             best_front = new_generation.fronts[0]
-            print(len(best_front))
-            best_front.print_chromosomes()
+            # print(len(best_front))
+            # best_front.print_chromosomes()
             print(new_generation.num_generation, 'th generation.......')
+
         return
 
     def get_new_generation(self, pre_generation):
