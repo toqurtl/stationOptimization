@@ -41,7 +41,6 @@ class Optimizer:
         self.build_factory_threshold = 100
         self.time_per_generation = []
 
-
     def set_generic(self, generic_ratio, size=100, max_generation=100, simulation_time=10000, initialize=True, first_generation=True, generation=None):
         self.size = size
         self.max_generation = max_generation
